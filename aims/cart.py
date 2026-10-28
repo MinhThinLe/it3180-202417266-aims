@@ -27,5 +27,9 @@ class Cart:
         return sum(item.cost for item in self.items)
 
     def print_cart(self):
+        if not self.items:
+            print("Cart empty, nothing to print")
+            return
+
         for item in self.items:
             print(item)
