@@ -26,6 +26,9 @@ class Cart:
     def total_cost(self):
         return sum(item.cost for item in self.items)
 
+    def discount(self, percent):
+        return self.total_cost() * (1 - percent / 100)
+
     def print_cart(self):
         if not self.items:
             print("Cart empty, nothing to print")

@@ -11,3 +11,13 @@ class TestCart(unittest.TestCase):
             cart.add_dvd(DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95))
         
         assert not cart.add_dvd(DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95))
+
+    def test_discount(self):
+        cart = Cart()
+
+        for _ in range(20):
+            cart.add_dvd(DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95))
+
+        cost = cart.total_cost()
+
+        assert cost * 0.80 == cart.discount(20)
